@@ -17,7 +17,7 @@
 body {
     max-width: 100vw;
     overflow-x: hidden;
-    background-color: #f6f8fc;
+    background-color: #f7f7f7;
 }
 
 
@@ -48,16 +48,15 @@ body {
 .pokemons {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit), minmax(136px, 1fr);
 
-    .pokemon-planta,
-    .pokemon-fogo {
+    .pokemon{
         display: flex;
         flex-direction: column;
-        color: #fff;
+        color: #000000;
         border-radius: 1rem;
         margin: 0.5rem;
-        padding: 1rem;
+        padding: 0.2rem;
 
         .detalhes{
             display: flex;
@@ -73,7 +72,7 @@ body {
         }
     
         .nome{
-            color: #fff;
+            color: #000000;
             border-radius: 10px;
             width: 5rem;
             padding-left: 3px;
@@ -82,15 +81,15 @@ body {
 
         .detalhes img {
             max-width: 100%;
-            height: 5rem;
+            height: 6rem;
             box-sizing: border-box;
             align-self: self-end;
         }
         
 
         .tipo {
-            background-color: var(--destaque-tipo-planta);
-            color: #fff;
+            color: #000000;
+            background: #0000000c;
             border-radius: 1rem;
             padding: .5rem 1rem;
             font-size: .625rem;
