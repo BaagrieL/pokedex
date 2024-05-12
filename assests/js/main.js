@@ -1,5 +1,5 @@
-const pokeContainer = document.querySelector('.pokemons');
-const pokemonCount = 150;
+const pokeContainer = document.querySelector ('.pokemons');
+const pokemonCount = 51;
 const colors = {
     fire: '#FDDFDF',
     grass: '#DEFDE0',
@@ -35,7 +35,7 @@ const getPokemons = async (id) => {
 
 const createPokemonCard = (poke) => {
     const card = document.createElement('div');
-    card.classList.add('pokemon');
+    card.classList.add('pokemonCard');
 
     const name = poke.name[0].toUpperCase() + poke.name.slice(1);
     const id = poke.id.toString().padStart(3, '0');
@@ -45,6 +45,16 @@ const createPokemonCard = (poke) => {
     const color = colors[type];
 
     card.style.backgroundColor = color;
+
+    const popup = document.querySelector('.popup');
+    const popupPokeImg = document.querySelector('.poke-img');
+    const popupButton = document.getElementById('popup-close-button');
+    const popupBackground = document.querySelector('.popup-background');
+
+    const popupPokeName = document.querySelector('#popup-poke-name');
+    const popupPokeType = document.querySelector('#popup-poke-type');
+
+    
 
     const pokemonInnerHTML = 
     `<li class="pokemon" id="${name}">
@@ -61,6 +71,37 @@ const createPokemonCard = (poke) => {
         </div>
             
     </li>`;
+
+    card.addEventListener('click', () => {
+        console.log(`Você clicou no Pokémon ${name}!`);
+        // card info
+        popup.classList.add('activate');
+        popupBackground.classList.add('activate-background');
+        popup.classList.remove('disable');
+        popupBackground.classList.remove('disable');
+
+        popup.style.backgroundColor = color;
+        popupPokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.id}.png`;
+        popupPokeName.innerHTML = `${name}`;
+        popupPokeType.innerHTML = `Tipo ${type}`;
+        // popupPokeType.style.color = color;
+
+    });
+    
+    popupButton.addEventListener('click', ()=>{
+        popup.classList.add('disable');
+        popup.classList.remove('activate');
+        popupBackground.classList.add('disable');
+        popupBackground.classList.remove('activate-background');
+        
+    });
+
+    popupBackground.addEventListener('click', ()=> {
+        popup.classList.add('disable');
+        popup.classList.remove('activate');
+        popupBackground.classList.add('disable');
+        popupBackground.classList.remove('activate-background');
+    });
 
     card.innerHTML = pokemonInnerHTML;
 
