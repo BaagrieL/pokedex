@@ -9,7 +9,7 @@
 body {
     max-width: 100vw;
     overflow-x: hidden;
-    background-color: #f7f7f7;
+    background-color: #ff0000;
 }
 
 .content {
@@ -17,20 +17,6 @@ body {
 
     h1 {
         color: red;
-    }
-}
-
-@media screen and (min-width: 576px) {
-    .content {
-        max-width: 576px;
-        margin: 0 auto;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .content {
-        max-width: 992px;
-        margin: 0 auto;
     }
 }
 
@@ -52,6 +38,9 @@ body {
 
     height: 24rem;
     width: 30rem;
+
+    max-width: 80vw;
+
     box-shadow: 0px 0px 11px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
@@ -202,7 +191,26 @@ body {
     }
 }
 
+@media screen and (max-width: 425px) {
+    .popup {
+        width: 25rem;
+
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        max-width: 576px;
+        margin: 0 auto;
+    }
+}
+
 @media screen and (min-width: 992px) {
+    .content {
+        max-width: 992px;
+        margin: 0 auto;
+    }
+
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr;
     }
